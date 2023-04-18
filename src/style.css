@@ -1,0 +1,131 @@
+:root {
+    --navBarHeight: 100px;
+    --colorLightBlue: rgb(176, 214, 215);
+    --colorVerdigris: rgb(106, 177, 180);
+    --colorDutchWhite: rgb(253, 234, 197);
+    --colorCoralPink: rgb(250, 144, 128);
+    --colorJasper: rgb(228, 90, 78);
+    --colorTeaRose: rgb(247, 203, 200);
+    --colorSunset: rgb(232, 198, 135);
+    --colorBittersweet: rgb(248, 118, 98);
+    --colorPeachYellow: rgb(251, 220, 157);
+}
+
+#content {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+body {margin: 0;}
+
+.navContainer {
+    position: absolute;
+    display: grid;
+    grid-template-rows: var(--navBarHeight) 100px;
+    width: 100%;
+}
+
+.navbar {
+    background-color: rgb(254,57,150);
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.navBorder {
+    position: relative;
+    top: -10px;
+    background-image: url(Assets/donutBorder.svg);
+    background-size: 800px;
+    background-repeat: repeat-x;
+    z-index: 10;
+}
+
+.nav-button {
+    height: 40px;
+    width: 60px;
+    background-color: aliceblue;
+    transition: .5s;
+}
+
+.nav-button:hover {
+    transform: scale(1.2);
+}
+
+.pageContainer {
+    position: absolute;
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.pageContainer.pageOne {
+    grid-template-rows: 6fr 4fr;
+    z-index: 3;
+}
+
+.pageContainer.pageTwo {
+    grid-template-rows: 3fr 5fr;
+    z-index: 2;
+}
+
+.pageContainer.pageThree {
+    grid-template-rows: 8fr 3fr;
+    z-index: 1;
+}
+
+.tab-content-top {
+    position: relative;
+    top: 0px;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+}
+
+.pageContainer.pageOne .tab-content-top {
+    background-color: var(--colorLightBlue);
+}
+
+.pageContainer.pageTwo .tab-content-top {
+    background-color: var(--colorDutchWhite);
+}
+
+.pageContainer.pageThree .tab-content-top {
+    background-color: var(--colorCoralPink);
+}
+
+.tab-content-top.offscreen {
+    top: -1000px;
+}
+
+.tab-content-bottom {
+    position: relative;
+    bottom: 0px;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+}
+
+.pageContainer.pageOne .tab-content-bottom {
+    background-color: var(--colorVerdigris);
+}
+
+.pageContainer.pageTwo .tab-content-bottom {
+    background-color: var(--colorPeachYellow);
+}
+
+.pageContainer.pageThree .tab-content-bottom {
+    background-color: var(--colorBittersweet);
+}
+
+.tab-content-bottom.offscreen {
+    bottom: -1000px;
+}
+
+@media (max-width: 1000px) {
+    .navBorder {
+        background-size: 600px;
+    }
+}

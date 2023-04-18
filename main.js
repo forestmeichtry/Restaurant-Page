@@ -1,1 +1,1 @@
-console.log("Testing...1...2..3"),console.log("testing watch"),console.log("testing live server");
+(()=>{const e=document.querySelector("#content");console.log(e);const o=document.createElement("div");console.log(o),o.classList.add("navbar"),e.appendChild(o)})();

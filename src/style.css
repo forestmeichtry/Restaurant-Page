@@ -1,7 +1,10 @@
 :root {
-    --navBarHeight: 100px;
+    --navBarHeight: 60px;
+    --logoSize: 400px;
+    --pageOneTopHeight: 65vh;
     --colorLightBlue: rgb(176, 214, 215);
     --colorVerdigris: rgb(106, 177, 180);
+    --verdigrisVal: 106, 177, 180;
     --colorDutchWhite: rgb(253, 234, 197);
     --colorCoralPink: rgb(250, 144, 128);
     --colorJasper: rgb(228, 90, 78);
@@ -17,12 +20,43 @@
     overflow: hidden;
 }
 
+.outerWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textWrap {
+    width: 30vw;
+    padding: 20px;
+    margin-top: calc(var(--navBarHeight) + 60px);
+    font-size: x-large;
+    font-family: 'Caveat', cursive;
+    text-align: center;
+    color: var(--colorDutchWhite);
+    background-color: rgba(var(--verdigrisVal), .6);
+    border-radius: 6px;
+    border: solid 2px var(--colorVerdigris);
+    filter: drop-shadow(0px 0px 5px #000);
+}
+
+.logo {
+    position: relative;
+    left: calc(50vw - calc(var(--logoSize) / 2));
+    background-image: url(Assets/donutLogoEdit.svg);
+    background-position: center;
+    background-size: cover;
+    width: var(--logoSize);
+    height: var(--logoSize);
+    z-index: 11;
+}
+
 body {margin: 0;}
 
 .navContainer {
     position: absolute;
     display: grid;
-    grid-template-rows: var(--navBarHeight) 100px;
+    grid-template-rows: var(--navBarHeight) 60px;
     width: 100%;
 }
 
@@ -39,20 +73,29 @@ body {margin: 0;}
     position: relative;
     top: -10px;
     background-image: url(Assets/donutBorder.svg);
-    background-size: 800px;
+    background-size: 500px;
     background-repeat: repeat-x;
     z-index: 10;
 }
 
 .nav-button {
-    height: 40px;
-    width: 60px;
-    background-color: aliceblue;
+    position: relative;
+    top: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 30px;
+    width: 80px;
     transition: .5s;
+    font-family: 'Caveat', cursive;
+    text-decoration: underline;
+    font-size: x-large;
+    z-index: 11;
 }
 
 .nav-button:hover {
     transform: scale(1.2);
+    cursor: pointer;
 }
 
 .pageContainer {
@@ -64,7 +107,7 @@ body {margin: 0;}
 }
 
 .pageContainer.pageOne {
-    grid-template-rows: 6fr 4fr;
+    grid-template-rows: var(--pageOneTopHeight) 40vh;
     z-index: 3;
 }
 
@@ -81,12 +124,18 @@ body {margin: 0;}
 .tab-content-top {
     position: relative;
     top: 0px;
+    border-bottom: solid 1px black;
     transition-duration: 1s;
     transition-timing-function: ease-in-out;
 }
 
 .pageContainer.pageOne .tab-content-top {
-    background-color: var(--colorLightBlue);
+    display: grid;
+    grid-template-rows: 1fr calc(calc(var(--logoSize) / 2) - 4px);
+}
+
+.pageContainer.pageOne .parallaxOuterWrap .parallaxInnerWrap {
+    background-image: url(Assets/donutDisplay2.png);
 }
 
 .pageContainer.pageTwo .tab-content-top {
@@ -104,12 +153,13 @@ body {margin: 0;}
 .tab-content-bottom {
     position: relative;
     bottom: 0px;
+    border-top: solid 1px black;
     transition-duration: 1s;
     transition-timing-function: ease-in-out;
 }
 
-.pageContainer.pageOne .tab-content-bottom {
-    background-color: var(--colorVerdigris);
+.pageContainer.pageOne .tab-content-bottom .parallaxOuterWrap .parallaxInnerWrap {
+    background-image: url(Assets/rack.png);
 }
 
 .pageContainer.pageTwo .tab-content-bottom {
@@ -124,8 +174,40 @@ body {margin: 0;}
     bottom: -1000px;
 }
 
-@media (max-width: 1000px) {
+.parallaxOuterWrap {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.parallaxInnerWrap {
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+}
+
+@media (max-width: 1024px) {
+    :root {
+        --logoSize: 250px;
+    }
+
+    .textWrap {
+        width: 80vw;
+    }
+
     .navBorder {
-        background-size: 600px;
+        background-size: 400px;
+    }
+
+    .parallaxInnerWrap {
+        width: 100%;
+        height: 100%;
     }
 }

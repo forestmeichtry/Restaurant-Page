@@ -1,22 +1,4 @@
-function removeHomePage() {
-    const pageContainer = document.querySelector('.pageContainer');
-    removeChildNodes(pageContainer);
-
-    const pageTop = document.createElement('div');
-    pageTop.classList.add('tab-content-top');
-    pageContainer.appendChild(pageTop);
-
-    const pageBottom = document.createElement('div');
-    pageBottom.classList.add('tab-content-bottom');
-    pageContainer.appendChild(pageBottom);
-
-    pageTop.classList.add('shift-up');
-    pageBottom.classList.add('shift-down');
-    pageTop.addEventListener('animationend', () => {
-        pageTop.classList.remove('shift-up');
-        pageBottom.classList.remove('shift-down');
-    }, {once: true});
-}
+import { createParallaxWrap } from "./helperMethods";
 
 function createHomePage() {
     const content = document.querySelector('#content');
@@ -28,9 +10,27 @@ function createHomePage() {
     pageTop.classList.add('tab-content-top');
     pageContainer.appendChild(pageTop);
 
+    const parallaxWrapTop = createParallaxWrap();
+    pageTop.appendChild(parallaxWrapTop);
+
+    const outerWrap = document.createElement('div');
+    const textContentTop = document.createElement('div');
+    outerWrap.classList.add('outerWrap');
+    textContentTop.classList.add('textWrap');
+    textContentTop.textContent = "Welcome to Glazed and Confused, where we create edible works of art using only the finest ingredients. Come in and let us take you on a journey of sweet and savory flavors.";
+    outerWrap.appendChild(textContentTop);
+    pageTop.appendChild(outerWrap);
+
+    const logo = document.createElement('div');
+    logo.classList.add('logo');
+    pageTop.appendChild(logo);
+
     const pageBottom = document.createElement('div');
     pageBottom.classList.add('tab-content-bottom');
     pageContainer.appendChild(pageBottom);
+
+    const parallaxWrapBottom = createParallaxWrap();
+    pageBottom.appendChild(parallaxWrapBottom);
 }
 
-export {createHomePage, removeHomePage};
+export {createHomePage};

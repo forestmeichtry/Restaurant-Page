@@ -16,4 +16,25 @@ function shiftPageOut(page) {
     pageBottom.classList.add('offscreen');
 }
 
-export {shiftPageIn, shiftPageOut};
+function createParallaxWrap() {
+    const parallaxOuterWrap = document.createElement('div');
+    parallaxOuterWrap.classList.add('parallaxOuterWrap');
+    const parallaxInnerWrap = document.createElement('div');
+    parallaxInnerWrap.classList.add('parallaxInnerWrap');
+
+    parallaxOuterWrap.appendChild(parallaxInnerWrap);
+
+    return parallaxOuterWrap;
+}
+
+function parallaxEffect(event) {
+    this.querySelectorAll('.parallaxInnerWrap').forEach((shift) => {
+        const position = 2;
+        const x = (window.innerWidth - event.pageX * position) / 90;
+        const y = (window.innerHeight - event.pageY * position) / 90;
+
+        shift.style.transform = `translateX(${x}px) translateY(${y}px)`;
+    });
+}
+
+export {shiftPageIn, shiftPageOut, parallaxEffect, createParallaxWrap};

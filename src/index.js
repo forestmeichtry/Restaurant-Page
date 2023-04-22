@@ -2,7 +2,7 @@ import './style.css';
 import { createHomePage, removeHomePage } from './homePage.js';
 import { createMenuPage } from './menuPage';
 import { createContactPage } from './contactPage';
-import { shiftPageIn, shiftPageOut, removePage } from './helperMethods';
+import { shiftPageIn, shiftPageOut, parallaxEffect } from './helperMethods';
 
 const content = document.querySelector('#content');
 
@@ -18,33 +18,38 @@ const navBorder = document.createElement('div');
 navBorder.classList.add('navBorder');
 navContainer.appendChild(navBorder);
 
-const navButtonOne = document.createElement('div');
-navButtonOne.classList.add('nav-button');
-navBar.appendChild(navButtonOne);
+const homeButton = document.createElement('div');
+homeButton.textContent = 'Home';
+homeButton.classList.add('nav-button');
+navBar.appendChild(homeButton);
 
-const navButtonTwo = document.createElement('div');
-navButtonTwo.classList.add('nav-button');
-navBar.appendChild(navButtonTwo);
+const menuButton = document.createElement('div');
+menuButton.textContent = 'Menu';
+menuButton.classList.add('nav-button');
+navBar.appendChild(menuButton);
 
-const navButtonThree = document.createElement('div');
-navButtonThree.classList.add('nav-button');
-navBar.appendChild(navButtonThree);
+const contactButton = document.createElement('div');
+contactButton.textContent = 'Contact';
+contactButton.classList.add('nav-button');
+navBar.appendChild(contactButton);
 
 createHomePage();
 createMenuPage();
 createContactPage();
 
-navButtonOne.addEventListener('click', () => {
+document.addEventListener("mousemove", parallaxEffect);
+
+homeButton.addEventListener('click', () => {
     shiftPageIn('.pageOne');
     shiftPageIn('.pageTwo');
 });
 
-navButtonTwo.addEventListener('click', () => {
+menuButton.addEventListener('click', () => {
     shiftPageIn('.pageTwo');
     shiftPageOut('.pageOne');
 });
 
-navButtonThree.addEventListener('click', () => {
+contactButton.addEventListener('click', () => {
     shiftPageOut('.pageOne');
     setTimeout(() => {
         shiftPageOut('.pageTwo');

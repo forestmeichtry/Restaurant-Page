@@ -37,7 +37,9 @@ createHomePage();
 createMenuPage();
 createContactPage();
 
-document.addEventListener("mousemove", parallaxEffect);
+if (window.screen.width > 1024) {
+    document.addEventListener("mousemove", parallaxEffect);
+}
 
 homeButton.addEventListener('click', () => {
     shiftPageIn('.pageOne');

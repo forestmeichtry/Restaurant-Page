@@ -13,13 +13,13 @@ function createHomePage() {
     const parallaxWrapTop = createParallaxWrap();
     pageTop.appendChild(parallaxWrapTop);
 
-    const outerWrap = document.createElement('div');
+    const outerWrapTop = document.createElement('div');
     const textContentTop = document.createElement('div');
-    outerWrap.classList.add('outerWrap');
+    outerWrapTop.classList.add('outerWrap');
     textContentTop.classList.add('textWrap');
     textContentTop.textContent = "Welcome to Glazed and Confused, where we create edible works of art using only the finest ingredients. Come in and let us take you on a journey of sweet and savory flavors.";
-    outerWrap.appendChild(textContentTop);
-    pageTop.appendChild(outerWrap);
+    outerWrapTop.appendChild(textContentTop);
+    pageTop.appendChild(outerWrapTop);
 
     const logo = document.createElement('div');
     logo.classList.add('logo');
@@ -31,6 +31,39 @@ function createHomePage() {
 
     const parallaxWrapBottom = createParallaxWrap();
     pageBottom.appendChild(parallaxWrapBottom);
+
+    const textContentBottom = document.createElement('div');
+    textContentBottom.classList.add('textWrap');
+    const hoursList = document.createElement('ul')
+    hoursList.classList.add('hoursList');
+    const listHeader = document.createElement('div');
+    listHeader.classList.add('listHeader');
+    listHeader.textContent = 'Hours';
+    const mondayListEntry = document.createElement('li');
+    mondayListEntry.textContent = 'Mon: 9am - 4pm';
+    hoursList.appendChild(mondayListEntry);
+    const tuesdayListEntry = document.createElement('li');
+    tuesdayListEntry.textContent = 'Tue: 9am - 4pm';
+    hoursList.appendChild(tuesdayListEntry);
+    const wednesdayListEntry = document.createElement('li');
+    wednesdayListEntry.textContent = 'Wed: 10am - 3pm';
+    hoursList.appendChild(wednesdayListEntry);
+    const thursdayListEntry = document.createElement('li');
+    thursdayListEntry.textContent = 'Thu: 9am - 4pm';
+    hoursList.appendChild(thursdayListEntry);
+    const fridayListEntry = document.createElement('li');
+    fridayListEntry.textContent = 'Fri: 9am - 7pm';
+    hoursList.appendChild(fridayListEntry);
+    const saturdayListEntry = document.createElement('li');
+    saturdayListEntry.textContent = 'Sat: 10am - 7pm';
+    hoursList.appendChild(saturdayListEntry);
+    const sundayListEntry = document.createElement('li');
+    sundayListEntry.textContent = 'Sun: Closed';
+    hoursList.appendChild(sundayListEntry);
+
+    textContentBottom.appendChild(listHeader);
+    textContentBottom.appendChild(hoursList);
+    pageBottom.appendChild(textContentBottom);
 }
 
 export {createHomePage};

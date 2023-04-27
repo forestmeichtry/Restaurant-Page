@@ -1,7 +1,7 @@
 :root {
     --navBarHeight: 60px;
     --logoSize: 300px;
-    --pageOneTopHeight: 50vh;
+    --pageOneTopHeight: 55vh;
     --colorLightBlue: rgb(176, 214, 215);
     --colorVerdigris: rgb(106, 177, 180);
     --verdigrisVal: 106, 177, 180;
@@ -188,7 +188,7 @@ body {margin: 0;}
 }
 
 .pageContainer.pageOne .tab-content-bottom .textWrap {
-    margin-top: calc(var(--logoSize) / 3);
+    margin-top: calc(var(--logoSize) / 4);
     padding-left: 50px;
     padding-right: 50px;
     width: auto;
@@ -246,7 +246,7 @@ body {margin: 0;}
     }
 
     .pageContainer.pageOne {
-        grid-template-rows: 3fr 3fr;
+        grid-template-rows: 4fr 3fr;
         z-index: 3;
     }
 }

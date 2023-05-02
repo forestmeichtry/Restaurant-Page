@@ -3,6 +3,7 @@ function shiftPageIn(page) {
     const pageTop = pageContainer.querySelector('.tab-content-top');
     const pageBottom = pageContainer.querySelector('.tab-content-bottom');
 
+    pageContainer.classList.remove('hidden');
     pageTop.classList.remove('offscreen');
     pageBottom.classList.remove('offscreen');
 }
@@ -14,6 +15,7 @@ function shiftPageOut(page) {
 
     pageTop.classList.add('offscreen');
     pageBottom.classList.add('offscreen');
+    pageContainer.classList.add('hidden');
 }
 
 function createParallaxWrap() {

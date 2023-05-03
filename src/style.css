@@ -308,13 +308,15 @@ body {margin: 0;}
     transition: .5s;
 }
 
-.menuImage:hover .menuInfo {
-    opacity: 1;
-}
-
-.menuImage:hover .menuInfo .menuHeader,
-.menuImage:hover .menuInfo .menuText {
-    bottom: 0px;
+@media(hover: hover) and (pointer: fine) {
+    .menuImage:hover .menuInfo {
+        opacity: 1;
+    }
+    
+    .menuImage:hover .menuInfo .menuHeader,
+    .menuImage:hover .menuInfo .menuText {
+        bottom: 0px;
+    }
 }
 
 @media (max-width: 1024px) {

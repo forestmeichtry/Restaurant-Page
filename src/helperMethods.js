@@ -32,7 +32,7 @@ function addMobileMenuEffect() {
     // todo, toggle info panel class (should use same rules as hover) for selected element
     let menuItems = document.querySelectorAll('.menuImage');
     for (let item of menuItems) {
-        item.addEventListener('touchstart', function() {
+        item.addEventListener('click', function() {
             this.classList.toggle('infoVisible');
         });
     }

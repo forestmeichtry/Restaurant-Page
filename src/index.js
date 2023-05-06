@@ -44,8 +44,10 @@ if (window.screen.width > 1024) {
 }
 
 homeButton.addEventListener('click', () => {
-    shiftPageIn('.pageOne');
     shiftPageIn('.pageTwo');
+    setTimeout(() => {
+        shiftPageIn('.pageOne');
+    }, 200);
 });
 
 menuButton.addEventListener('click', () => {

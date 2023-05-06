@@ -141,8 +141,41 @@ body {margin: 0;}
 }
 
 .pageContainer.pageThree {
-    grid-template-rows: 8fr 3fr;
     z-index: 1;
+}
+
+.pageContainer.pageThree .parallaxOuterWrap .parallaxInnerWrap {
+    background-image: url(Assets/donutTile2.png);
+    background-size: 400px;
+}
+
+.pageContainer.pageThree .textWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    width: 40vw;
+    padding: 50px;
+}
+
+.contactHeader {
+    font-size: 2.5rem;
+}
+
+.contactText {
+    font-size: 1.5rem;
+}
+
+.contactNumber {
+    margin-bottom: -45px;
+}
+
+.contactAddressList {
+    list-style: none;
+    padding-inline-start: 0px;
+    margin-block-start: -45px;
+    margin-block-end: 0px;
 }
 
 .tab-content-top {
@@ -292,7 +325,7 @@ body {margin: 0;}
 .menuHeader {
     position: relative;
     bottom: -200px;
-    font-size: xxx-large;
+    font-size: 2.5rem;
     font-family: 'Caveat', cursive;
     color: var(--colorDutchWhite);
     margin-left: 20px;
@@ -302,7 +335,7 @@ body {margin: 0;}
 .menuText {
     position: relative;
     bottom: -200px;
-    font-size: x-large;
+    font-size: 1.5rem;
     font-family: 'Caveat', cursive;
     color: var(--colorDutchWhite);
     margin: 0px 20px 40px 20px;
@@ -328,7 +361,7 @@ body {margin: 0;}
 
     .textWrap {
         width: 80vw;
-        font-size: large;
+        font-size: 1.3rem;
     }
 
     .navBorder {
@@ -397,5 +430,37 @@ body {margin: 0;}
     .menuImage.infoVisible .menuInfo .menuHeader,
     .menuImage.infoVisible .menuInfo .menuText {
         bottom: 0px;
+    }
+
+    .pageContainer.pageThree {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .pageContainer.pageThree .textWrap {
+        margin-top: var(--navBarHeight);
+        gap: 20px;
+        width: 70vw;
+        padding: 20px;
+    }
+    
+    .contactHeader {
+        font-size: 2rem;
+    }
+    
+    .contactText {
+        font-size: 1.3rem;
+    }
+    
+    .contactNumber {
+        margin-bottom: -15px;
+    }
+    
+    .contactAddressList {
+        list-style: none;
+        padding-inline-start: 0px;
+        margin-block-start: -15px;
+        margin-block-end: 0px;
     }
 }

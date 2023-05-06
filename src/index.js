@@ -2,7 +2,7 @@ import './style.css';
 import { createHomePage, removeHomePage } from './homePage.js';
 import { createMenuPage } from './menuPage';
 import { createContactPage } from './contactPage';
-import { shiftPageIn, shiftPageOut, parallaxEffect } from './helperMethods';
+import { shiftPageIn, shiftPageOut, parallaxEffect, addMobileMenuEffect } from './helperMethods';
 
 const content = document.querySelector('#content');
 
@@ -39,6 +39,8 @@ createContactPage();
 
 if (window.screen.width > 1024) {
     document.addEventListener("mousemove", parallaxEffect);
+} else {
+    addMobileMenuEffect();
 }
 
 homeButton.addEventListener('click', () => {

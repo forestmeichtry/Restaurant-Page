@@ -1,22 +1,42 @@
 function shiftPageIn(page) {
     const pageContainer = document.querySelector(page);
-    const pageTop = pageContainer.querySelector('.tab-content-top');
-    const pageBottom = pageContainer.querySelector('.tab-content-bottom');
 
-    pageContainer.classList.remove('hidden');
-    pageTop.classList.remove('offscreen');
-    pageBottom.classList.remove('offscreen');
+    if (page === '.pageTwo') {
+        pageContainer.classList.remove('sliced');
+    } else {
+        const pageTop = pageContainer.querySelector('.tab-content-top');
+        const pageBottom = pageContainer.querySelector('.tab-content-bottom');
+
+        pageContainer.classList.remove('hidden');
+        pageTop.classList.remove('offscreen');
+        pageBottom.classList.remove('offscreen');
+    }
 }
 
 function shiftPageOut(page) {
     const pageContainer = document.querySelector(page);
-    const pageTop = pageContainer.querySelector('.tab-content-top');
-    const pageBottom = pageContainer.querySelector('.tab-content-bottom');
 
-    pageTop.classList.add('offscreen');
-    pageBottom.classList.add('offscreen');
-    pageContainer.classList.add('hidden');
+    if (page === '.pageTwo') {
+        pageContainer.classList.add('sliced');
+    } else {
+        const pageTop = pageContainer.querySelector('.tab-content-top');
+        const pageBottom = pageContainer.querySelector('.tab-content-bottom');
+
+        pageTop.classList.add('offscreen');
+        pageBottom.classList.add('offscreen');
+        pageContainer.classList.add('hidden');
+    }
 }
+
+function addMobileMenuEffect() {
+    // todo, toggle info panel class (should use same rules as hover) for selected element
+    let menuItems = document.querySelectorAll('.menuImage');
+    for (let item of menuItems) {
+        item.addEventListener('touchstart', function() {
+            this.classList.toggle('infoVisible');
+        });
+    }
+}  
 
 function createParallaxWrap() {
     const parallaxOuterWrap = document.createElement('div');
@@ -39,4 +59,4 @@ function parallaxEffect(event) {
     });
 }
 
-export {shiftPageIn, shiftPageOut, parallaxEffect, createParallaxWrap};
+export {shiftPageIn, shiftPageOut, parallaxEffect, createParallaxWrap, addMobileMenuEffect};

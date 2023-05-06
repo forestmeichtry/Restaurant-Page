@@ -1,12 +1,10 @@
 function createMenuPage() {
+    let menuItems = [];
+
     const content = document.querySelector('#content');
     const pageContainer = document.createElement('div');
     pageContainer.classList.add('pageContainer', 'pageTwo');
     content.appendChild(pageContainer);
-
-    const pageTop = document.createElement('div');
-    pageTop.classList.add('tab-content-top');
-    pageContainer.appendChild(pageTop);
 
     const galaxyDonut = document.createElement('div');
     galaxyDonut.classList.add('galaxyDonut', 'menuImage');
@@ -21,7 +19,7 @@ function createMenuPage() {
     galaxyInfo.appendChild(galaxyHeader);
     galaxyInfo.appendChild(galaxyText);
     galaxyDonut.appendChild(galaxyInfo);
-    pageTop.appendChild(galaxyDonut);
+    menuItems.push(galaxyDonut);
 
     const coffeeDonut = document.createElement('div');
     coffeeDonut.classList.add('coffeeDonut', 'menuImage');
@@ -36,7 +34,7 @@ function createMenuPage() {
     coffeeInfo.appendChild(coffeeHeader);
     coffeeInfo.appendChild(coffeeText);
     coffeeDonut.appendChild(coffeeInfo);
-    pageTop.appendChild(coffeeDonut);
+    menuItems.push(coffeeDonut);
 
     const blueberryDonut = document.createElement('div');
     blueberryDonut.classList.add('blueberryDonut', 'menuImage');
@@ -51,7 +49,7 @@ function createMenuPage() {
     blueberryInfo.appendChild(blueberryHeader);
     blueberryInfo.appendChild(blueberryText);
     blueberryDonut.appendChild(blueberryInfo);
-    pageTop.appendChild(blueberryDonut);
+    menuItems.push(blueberryDonut);
 
     const matchaDonut = document.createElement('div');
     matchaDonut.classList.add('matchaDonut', 'menuImage');
@@ -66,11 +64,7 @@ function createMenuPage() {
     matchaInfo.appendChild(matchaHeader);
     matchaInfo.appendChild(matchaText);
     matchaDonut.appendChild(matchaInfo);
-    pageTop.appendChild(matchaDonut);
-
-    const pageBottom = document.createElement('div');
-    pageBottom.classList.add('tab-content-bottom');
-    pageContainer.appendChild(pageBottom);
+    menuItems.push(matchaDonut);
     
     const mintDonut = document.createElement('div');
     mintDonut.classList.add('mintDonut', 'menuImage');
@@ -85,7 +79,7 @@ function createMenuPage() {
     mintInfo.appendChild(mintHeader);
     mintInfo.appendChild(mintText);
     mintDonut.appendChild(mintInfo);
-    pageBottom.appendChild(mintDonut);
+    menuItems.push(mintDonut);
 
     const nutellaDonut = document.createElement('div');
     nutellaDonut.classList.add('nutellaDonut', 'menuImage');
@@ -100,7 +94,7 @@ function createMenuPage() {
     nutellaInfo.appendChild(nutellaHeader);
     nutellaInfo.appendChild(nutellaText);
     nutellaDonut.appendChild(nutellaInfo);
-    pageBottom.appendChild(nutellaDonut);
+    menuItems.push(nutellaDonut);
 
     const cerealDonut = document.createElement('div');
     cerealDonut.classList.add('cerealDonut', 'menuImage');
@@ -115,7 +109,7 @@ function createMenuPage() {
     cerealInfo.appendChild(cerealHeader);
     cerealInfo.appendChild(cerealText);
     cerealDonut.appendChild(cerealInfo);
-    pageBottom.appendChild(cerealDonut);
+    menuItems.push(cerealDonut);
 
     const caramelDonut = document.createElement('div');
     caramelDonut.classList.add('caramelDonut', 'menuImage');
@@ -130,7 +124,29 @@ function createMenuPage() {
     caramelInfo.appendChild(caramelHeader);
     caramelInfo.appendChild(caramelText);
     caramelDonut.appendChild(caramelInfo);
-    pageBottom.appendChild(caramelDonut);
+    menuItems.push(caramelDonut);
+
+    if (window.screen.width > 1024) {
+        const pageTop = document.createElement('div');
+        pageTop.classList.add('tab-content-top');
+        pageContainer.appendChild(pageTop);
+
+        const pageBottom = document.createElement('div');
+        pageBottom.classList.add('tab-content-bottom');
+        pageContainer.appendChild(pageBottom);
+
+        for (let i = 0; i < menuItems.length; i++) {
+            if (i < 4) {
+                pageTop.appendChild(menuItems[i]);
+            } else {
+                pageBottom.appendChild(menuItems[i]);
+            }
+        }
+    } else {
+        for (let item of menuItems) {
+            pageContainer.appendChild(item);
+        }
+    }
 }
 
 export {createMenuPage};

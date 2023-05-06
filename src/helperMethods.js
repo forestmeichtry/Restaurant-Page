@@ -1,7 +1,7 @@
 function shiftPageIn(page) {
     const pageContainer = document.querySelector(page);
 
-    if (page === '.pageTwo') {
+    if (page === '.pageTwo' && window.screen.width <= 1024) {
         pageContainer.classList.remove('sliced');
     } else {
         const pageTop = pageContainer.querySelector('.tab-content-top');
@@ -16,7 +16,7 @@ function shiftPageIn(page) {
 function shiftPageOut(page) {
     const pageContainer = document.querySelector(page);
 
-    if (page === '.pageTwo') {
+    if (page === '.pageTwo' && window.screen.width <= 1024) {
         pageContainer.classList.add('sliced');
     } else {
         const pageTop = pageContainer.querySelector('.tab-content-top');
